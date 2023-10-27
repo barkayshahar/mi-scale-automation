@@ -6,13 +6,9 @@ from bleak.backends.characteristic import BleakGATTCharacteristic
 
 from parsing import parse_body_composition_message
 
-DEVICE_INFORMATION_UUID = "0000180a-0000-1000-8000-00805f9b34fb"
-BODY_COMPOSITION_UUID = "0000181b-0000-1000-8000-00805f9b34fb"
-GENERIC_ATTRIBUTE_UUID = "00001801-0000-1000-8000-00805f9b34fb"
-SCALE_CONFIGURATION_UUID = "00001530-0000-3512-2118-0009af100700"
+BODY_COMPOSITION_MEASUREMENT_UUID = "00002a9c-0000-1000-8000-00805f9b34fb"
 
 logger = logging.getLogger(__name__)
-miscale_device = None
 
 
 async def find_miscale_device():
@@ -20,11 +16,13 @@ async def find_miscale_device():
 
 
 def notification_handler(characteristic: BleakGATTCharacteristic, data: bytearray):
-    """Simple notification handler which prints the data received."""
+    """parses body composition data and logs it"""
     message = parse_body_composition_message(data)
+
     logger.debug(message)
 
     if message.stabilized and message.measurement.impedance < 3000:
+        """when the measurement is stable and the impedance is below 3000 ohm, the measurement is valid"""
         logger.info(message)
 
 
@@ -43,14 +41,16 @@ async def connect_and_measure():
 
     async with client:
         await client.start_notify(
-            "00002a9c-0000-1000-8000-00805f9b34fb", notification_handler
+            BODY_COMPOSITION_MEASUREMENT_UUID, notification_handler
         )
         await disconnected_event.wait()
 
 
 async def main():
+    logger.info("starting scan")
     while True:
         await connect_and_measure()
+        logger.info("restarting scan")
 
 
 if __name__ == "__main__":

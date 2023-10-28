@@ -1,5 +1,7 @@
 # mi-scale-automation
 
+![CLI with weight logs](https://raw.githubusercontent.com/barkayshahar/mi-scale-automation/main/showcase.png "Showcase")
+
 **mi-scale-automation** is a Python script that automates the process of retrieving weight data from the Xiaomi Mi Scale 2 without the need to connect to Xiaomi's cloud services. This script is designed for users who want to use the scale with alternative apps, create custom applications, or log their weight privately to their own databases.
 
 It is based on the work of the [Bluetooth repository](https://github.com/wiecosystem/Bluetooth/tree/master), and it allows you to quickly and easily obtain your weight data.

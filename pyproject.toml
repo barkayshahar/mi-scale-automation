@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Shahar Barkay <barkayshahar@gmail.com>"]
 readme = "README.md"
-packages = [{include = "mi_scale_automation"}]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"

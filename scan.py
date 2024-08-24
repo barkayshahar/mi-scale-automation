@@ -29,12 +29,14 @@ def notification_handler(characteristic: BleakGATTCharacteristic, data: bytearra
 async def connect_and_measure():
     disconnected_event = asyncio.Event()
 
-    def disconnected_callback(client):
+    def disconnected_callback(_bleak_client: BleakClient):
         logger.info("disconnected callback")
         disconnected_event.set()
 
     device = await find_miscale_device()
+    logger.info(f"found device: {device.name}")
     if not device:
+        logger.info("no device found")
         return
 
     client = BleakClient(device, disconnected_callback=disconnected_callback)

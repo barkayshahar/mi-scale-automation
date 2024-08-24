@@ -11,9 +11,9 @@ It is based on the work of the [Bluetooth repository](https://github.com/wiecosy
 Before using this script, make sure you have the following:
 
 - Python 3.10+ installed on your system.
+- Poetry 1.8+ installed on your system.
 - A Xiaomi Mi Scale 2.
 - A Bluetooth adapter that supports Bluetooth Low Energy (BLE). This can be a built-in Bluetooth adapter or a USB dongle. Some Wi-Fi antennas also support BLE.
-- A compatible operating system (Linux is recommended, but it may work on Windows and Mac as well).
 
 ## Installation
 

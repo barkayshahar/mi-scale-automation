@@ -1,3 +1,5 @@
+
+
 # mi-scale-automation
 
 ![CLI with weight logs](https://raw.githubusercontent.com/barkayshahar/mi-scale-automation/main/showcase.png "Showcase")
@@ -10,7 +12,7 @@ It is based on the work of the [Bluetooth repository](https://github.com/wiecosy
 
 Before using this script, make sure you have the following:
 
-- Python 3.10+ installed on your system.
+- Python 3.10, 3.11, or 3.12 installed on your system.
 - Poetry 1.8+ installed on your system.
 - A Xiaomi Mi Scale 2.
 - A Bluetooth adapter that supports Bluetooth Low Energy (BLE). This can be a built-in Bluetooth adapter or a USB dongle. Some Wi-Fi antennas also support BLE.
@@ -49,4 +51,3 @@ If you encounter issues while trying to connect to the scale, consider the follo
 - Check that your Bluetooth adapter supports BLE and is properly connected.
 - Make sure your Bluetooth adapter is enabled and not blocked by rfkill.
 - Feel free to reach out if you encounter any issues beyond these troubleshooting steps.
-
